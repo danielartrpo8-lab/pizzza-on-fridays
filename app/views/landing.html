@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Market Dashboard · Entiende el mercado sin tecnicismos</title>
+  <meta name="description"
+        content="Precios en vivo, gráficos claros y volatilidad explicada en palabras simples. Sin experiencia previa en bolsa.">
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body class="landing">
+
+  <header class="landing-nav">
+    <div class="landing-nav__brand">
+      <span class="landing-nav__logo">📈</span>
+      <span>Market Dashboard</span>
+    </div>
+    <a class="landing-nav__cta" href="{{ url_for(default_app.endpoint) }}">Entrar al dashboard</a>
+  </header>
+
+  <div class="landing-ticker" aria-hidden="true">
+    <div class="landing-ticker__track">
+      <span class="landing-ticker__item is-up">AAPL <strong>+1.24%</strong></span>
+      <span class="landing-ticker__item is-down">TSLA <strong>-0.82%</strong></span>
+      <span class="landing-ticker__item is-up">MSFT <strong>+0.63%</strong></span>
+      <span class="landing-ticker__item is-up">NVDA <strong>+2.91%</strong></span>
+      <span class="landing-ticker__item is-down">META <strong>-0.35%</strong></span>
+      <span class="landing-ticker__item is-up">JPM <strong>+0.44%</strong></span>
+      <span class="landing-ticker__item is-down">BAC <strong>-0.18%</strong></span>
+      <span class="landing-ticker__item is-up">GOOG <strong>+0.97%</strong></span>
+      <!-- duplicado para que el scroll sea continuo -->
+      <span class="landing-ticker__item is-up">AAPL <strong>+1.24%</strong></span>
+      <span class="landing-ticker__item is-down">TSLA <strong>-0.82%</strong></span>
+      <span class="landing-ticker__item is-up">MSFT <strong>+0.63%</strong></span>
+      <span class="landing-ticker__item is-up">NVDA <strong>+2.91%</strong></span>
+      <span class="landing-ticker__item is-down">META <strong>-0.35%</strong></span>
+      <span class="landing-ticker__item is-up">JPM <strong>+0.44%</strong></span>
+      <span class="landing-ticker__item is-down">BAC <strong>-0.18%</strong></span>
+      <span class="landing-ticker__item is-up">GOOG <strong>+0.97%</strong></span>
+    </div>
+  </div>
+
+  <section class="landing-hero">
+    <div class="landing-hero__body">
+      <p class="landing-hero__eyebrow">Datos en vivo · Yahoo Finance</p>
+      <h1>Sigue el mercado sin ser un experto en finanzas</h1>
+      <p class="landing-hero__subtitle">
+        Gráficos claros y en tiempo real, explicados en palabras simples. Sin jerga,
+        sin cursos previos: elige un activo y entiende qué está pasando con tu dinero.
+      </p>
+      <div class="landing-hero__actions">
+        <a class="landing-hero__btn landing-hero__btn--primary" href="{{ url_for(default_app.endpoint) }}">
+          Explorar el dashboard →
+        </a>
+        <a class="landing-hero__btn landing-hero__btn--ghost" href="#quiz">¿No sabes por dónde empezar?</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="landing-quiz" id="quiz">
+    <div class="landing-quiz__intro">
+      <h2>¿Qué te interesa más?</h2>
+      <p>Responde un par de preguntas y te llevamos directo a lo tuyo.</p>
+    </div>
+    <div class="landing-quiz__card">
+      <div class="landing-quiz__progress" id="quiz-progress" aria-hidden="true"></div>
+
+      <div id="quiz-question-view">
+        <h3 class="landing-quiz__question" id="quiz-question-text"></h3>
+        <div class="landing-quiz__options" id="quiz-options"></div>
+      </div>
+
+      <div id="quiz-result-view" class="landing-quiz__result" hidden>
+        <span class="landing-quiz__result-icon" id="quiz-result-icon"></span>
+        <p class="landing-quiz__result-eyebrow">Te recomendamos</p>
+        <h3 id="quiz-result-title"></h3>
+        <p id="quiz-result-desc"></p>
+        <div class="landing-quiz__result-actions">
+          <a class="landing-hero__btn landing-hero__btn--primary" id="quiz-result-cta">Ir ahora →</a>
+          <button class="landing-hero__btn landing-hero__btn--ghost" id="quiz-restart" type="button">
+            Volver a empezar
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="landing-features">
+    <h2>Todo lo que necesitas, en un solo lugar</h2>
+    <div class="landing-features__grid">
+      <article class="landing-card">
+        <span class="landing-card__icon">📈</span>
+        <h3>Gráficas en vivo</h3>
+        <p>Precios actualizados de acciones y ETFs, con velas al estilo profesional pero
+          fáciles de leer: verde si sube, rojo si baja.</p>
+      </article>
+      <article class="landing-card">
+        <span class="landing-card__icon">⭐</span>
+        <h3>Watchlists a tu medida</h3>
+        <p>Agrupa los activos que te interesan — bancos, tecnología, energía — y
+          revísalos de un vistazo, sin buscarlos uno por uno.</p>
+      </article>
+      <article class="landing-card">
+        <span class="landing-card__icon">🧮</span>
+        <h3>Riesgo explicado simple</h3>
+        <p>Un histograma te muestra qué tan "movido" fue un activo cada mes, sin
+          necesidad de saber estadística.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="landing-steps" id="como-funciona">
+    <h2>Cómo funciona, en 3 pasos</h2>
+    <ol class="landing-steps__list">
+      <li>
+        <span class="landing-steps__num">1</span>
+        <div>
+          <h3>Elige un activo</h3>
+          <p>Busca una acción o selecciónala desde una watchlist ya lista, como
+            "Tecnología" o "Bancos".</p>
+        </div>
+      </li>
+      <li>
+        <span class="landing-steps__num">2</span>
+        <div>
+          <h3>Mira su gráfico</h3>
+          <p>Verás cómo subió o bajó su precio, con verde para ganancias y rojo para
+            pérdidas — igual que en la tele.</p>
+        </div>
+      </li>
+      <li>
+        <span class="landing-steps__num">3</span>
+        <div>
+          <h3>Entiende el riesgo</h3>
+          <p>Consulta la volatilidad: mientras más alta, más "sube y baja" el precio,
+            y más incertidumbre puede implicar.</p>
+        </div>
+      </li>
+    </ol>
+  </section>
+
+  <section class="landing-glossary">
+    <h2>Palabras clave, sin tecnicismos</h2>
+    <dl class="landing-glossary__list">
+      <div>
+        <dt>Ticker</dt>
+        <dd>El "apodo" de una empresa en bolsa. Por ejemplo, AAPL es Apple.</dd>
+      </div>
+      <div>
+        <dt>Vela (candle)</dt>
+        <dd>Un dibujo que resume el precio de un activo en un período: apertura,
+          cierre, máximo y mínimo.</dd>
+      </div>
+      <div>
+        <dt>Volatilidad</dt>
+        <dd>Qué tanto sube y baja el precio de un activo. Más alta significa más
+          incertidumbre.</dd>
+      </div>
+      <div>
+        <dt>Watchlist</dt>
+        <dd>Una lista de activos que quieres seguir de cerca, agrupados como tú
+          prefieras.</dd>
+      </div>
+    </dl>
+  </section>
+
+  <footer class="landing-footer">
+    <a class="landing-hero__btn landing-hero__btn--primary" href="{{ url_for(default_app.endpoint) }}">
+      Entrar al dashboard →
+    </a>
+    <p>Datos de mercado vía Yahoo Finance. Este panel es informativo y no constituye
+      asesoría financiera.</p>
+  </footer>
+
+  <script id="quiz-outcomes" type="application/json">{{ quiz_outcomes | tojson }}</script>
+  <script src="{{ url_for('static', filename='js/quiz.js') }}"></script>
+</body>
+</html>
